@@ -21,6 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9b44f47-b8fd-44e4-ba0f-a37bfdd423d5" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_27_0_0_aar.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background_login.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_login.xml" afterDir="false" />
@@ -77,6 +78,16 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/mainview.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+>>>>>>> 66ba46f6347237a32ce941ec6cc9b16b7efa61ce
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,8 +137,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+<<<<<<< HEAD
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\USER\Desktop\STUDIA3\VII\BSS\Projekt\Android\app\src\main\res\mipmap-hdpi" />
+=======
+    <key name="android.template.-735983109">
+      <recent name="com.example.inz" />
+>>>>>>> 66ba46f6347237a32ce941ec6cc9b16b7efa61ce
     </key>
   </component>
   <component name="RunManager">
@@ -248,13 +264,17 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state width="1860" height="240" key="GridCell.Tab.0.right/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603222426647" />
-    <state x="678" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1603389248641">
+    <state x="678" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1603392264518">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
+<<<<<<< HEAD
     <state x="678" y="348" key="com.intellij.ide.util.TipDialog/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603389248641" />
     <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603401223996">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603401223996" />
+=======
+    <state x="678" y="348" key="com.intellij.ide.util.TipDialog/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603392264518" />
+>>>>>>> 66ba46f6347237a32ce941ec6cc9b16b7efa61ce
   </component>
 </project>

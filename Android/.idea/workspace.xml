@@ -9,7 +9,28 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9b44f47-b8fd-44e4-ba0f-a37bfdd423d5" name="Default Changelist" comment="" />
+    <list default="true" id="c9b44f47-b8fd-44e4-ba0f-a37bfdd423d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.graphqlconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Inz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Inz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/graphql/com/example/database.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/graphql/com/example/database.graphql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/graphql/com/example/schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/graphql/com/example/schema.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,10 +153,18 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="552" y="243" key="#Auto_Import/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1602952509955" />
+    <state x="552" y="243" width="816" height="730" key="#Intentions" timestamp="1603390484212">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="552" y="243" width="816" height="730" key="#Intentions/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603390484212" />
     <state x="499" y="256" key="#PSD" timestamp="1603226829105">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="499" y="256" key="#PSD/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603226829105" />
+    <state x="810" y="528" key="#com.intellij.ide.util.TreeDirectoryChooserDialog" timestamp="1603390350022">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="810" y="528" key="#com.intellij.ide.util.TreeDirectoryChooserDialog/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1603390350022" />
     <state x="562" y="279" key="AndroidCreateResourceDirectoryDialog" timestamp="1603221179213">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>

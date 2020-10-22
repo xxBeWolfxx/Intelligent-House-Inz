@@ -4,51 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_login"
+    android:clickable="true"
     tools:context=".MainActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="170dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="120dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="212dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="256dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/logopp" />
+    </android.support.constraint.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="263dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="56dp"
-        android:text="Button"
+    <android.support.constraint.ConstraintLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#007E2626"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextTextLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:backgroundTint="#B5FFFFFF"
+                    android:ems="13"
+                    android:hint = "Login"
+                    android:textColorHint="#51FFFFFF"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#B5FFFFFF"
+                    tools:text="Login" />
+
+                <EditText
+                    android:id="@+id/editTextTextPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#B5FFFFFF"
+                    android:ems="13"
+                    android:hint = "Password"
+                    android:textColorHint="#51FFFFFF"
+                    android:inputType="textPassword"
+                    android:textColor="#B5FFFFFF"
+                    tools:text="Password" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#00FFFFFF"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal|top"
+                android:background="@drawable/button_login"
+                android:clickable="false"
+                android:text="LOG IN" />
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

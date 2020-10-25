@@ -13,7 +13,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
-        
+
+
+        val btnOpenMainView: Button = findViewById(R.id.button_login)
+        btnOpenMainView.setOnClickListener{
+            val intent = Intent(this, MainView::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 }

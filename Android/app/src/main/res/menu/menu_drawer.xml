@@ -5,13 +5,13 @@
     <item
         android:id="@+id/nav_btn1"
         android:title="przycisk1"
-        app:showaAsAction="ifRoom" />
+         />
     <item
         android:id="@+id/nav_btn2"
         android:title="przycisk2"
-        app:showaAsAction="ifRoom" />
+         />
     <item
         android:id="@+id/nav_btn3"
         android:title="przycisk3"
-        app:showaAsAction="ifRoom" />
+         />
 </menu>

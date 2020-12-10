@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home"
+    tools:ignore="UnusedNavigation" >
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.inz.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_inputFragment2"
+            app:destination="@id/inputFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_outputFragment"
+            app:destination="@id/outputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputFragment2"
+        android:name="com.example.inz.InputFragment"
+        android:label="Inputs"
+        tools:layout="@layout/fragment_input" />
+    <fragment
+        android:id="@+id/outputFragment"
+        android:name="com.example.inz.OutputFragment"
+        android:label="Outputs"
+        tools:layout="@layout/fragment_output" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.inz.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

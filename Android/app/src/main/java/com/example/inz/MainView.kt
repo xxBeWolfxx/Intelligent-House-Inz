@@ -1,14 +1,18 @@
 package com.example.inz
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import com.google.android.material.navigation.NavigationView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.mainview.*
 
@@ -17,20 +21,32 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 //    lateinit var  toggle: ActionBarDrawerToggle
     lateinit var homeFragment: HomeFragment
     lateinit var  inputFragment: InputFragment
-    lateinit var  OutputFragment: OutputFragment
+    lateinit var  outputFragment: OutputFragment
     lateinit var  settingsFragment: SettingsFragment
+    lateinit var  actionBar: ActionBar
+
+
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
+
+//        val buttonTemp:Button = findViewById(R.id.button_temp)
+//        buttonTemp.setOnClickListener{
+//            val intent = Intent(this, TempChart::class.java)
+//            startActivity(intent)
+//        }
+
+
 //
 //        toggle = ActionBarDrawerToggle(this, drawer_layout, R.string.open, R.string.close)
 //        drawer_layout.addDrawerListener(toggle)
 //        toggle.syncState()
+
         setSupportActionBar(toolBar)
-        val actionBar = supportActionBar
-        actionBar?.title = "Navigation Drawer"
+        actionBar = supportActionBar!!
+        actionBar?.title = "Home"
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle (
             this,
             drawer_layout,
@@ -48,6 +64,8 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
 
         inputFragment = InputFragment()
+        outputFragment =   OutputFragment()
+        settingsFragment = SettingsFragment()
         homeFragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
 
@@ -62,15 +80,31 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 //        return super.onOptionsItemSelected(item)
 //    }
 
+
     override fun onNavigationItemSelected(item: MenuItem):Boolean{
         when(item.itemId){
             R.id.nav_btn1 -> {
                 homeFragment = HomeFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                actionBar?.title = "Home"
             }
             R.id.nav_btn2 -> {
                 inputFragment = InputFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.frame_layout, inputFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                actionBar?.title = "Sensors"
+
+            }
+            R.id.nav_btn3 -> {
+                outputFragment =    OutputFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, outputFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                actionBar?.title = "Devices"
+
+            }
+            R.id.nav_btn4 -> {
+                settingsFragment = SettingsFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, settingsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                actionBar?.title = "Settings"
+
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)

@@ -17,7 +17,7 @@ class DatabaseObjects{
 
 
 
-     fun GetUser(){
+     fun GetUser(): User{
          var obj: User = User("valid", "valid","valid","valid", null, null)
          var err: FuelError
          runBlocking {
@@ -28,13 +28,12 @@ class DatabaseObjects{
                      }
                      is Result.Success -> {
                          obj = result.component1()!!
-                         return@responseObject obj
                      }
                  }
              }
          }
 
-
+        return obj
 
     }
 

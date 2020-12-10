@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    app:ignore="NamespaceTypo">
-    <item
-        android:id="@+id/nav_btn1"
-        android:title="przycisk1"
-         />
-    <item
-        android:id="@+id/nav_btn2"
-        android:title="przycisk2"
-         />
-    <item
-        android:id="@+id/nav_btn3"
-        android:title="przycisk3"
-         />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_btn1"
+            android:icon="@drawable/home"
+            android:title="Home" />
+    </group>
+
+    <item android:title="Tools">
+        <menu>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_btn2"
+            android:icon="@drawable/sensor"
+            android:title="Sensors" />
+        <item
+            android:id="@+id/nav_btn3"
+            android:icon="@drawable/devices"
+            android:title="Devices"></item>
+    </group>
+        </menu>
+    </item>
+
+    <item android:title="Settings">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_btn4"
+                    android:icon="@drawable/settings"
+                    android:title="Settings" />
+                <item
+                    android:id="@+id/nav_btn5"
+                    android:icon="@drawable/info"
+                    android:title="Info" />
+                <item
+                    android:id="@+id/nav_btn6"
+                    android:icon="@drawable/logout"
+                    android:title="Log out" />
+            </group>
+        </menu>
+    </item>
+
 </menu>

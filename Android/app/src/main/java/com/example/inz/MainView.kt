@@ -2,17 +2,15 @@ package com.example.inz
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
-import com.google.android.material.navigation.NavigationView
-import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.mainview.*
 
@@ -26,17 +24,12 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     lateinit var  actionBar: ActionBar
 
 
-
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
 
-//        val buttonTemp:Button = findViewById(R.id.button_temp)
-//        buttonTemp.setOnClickListener{
-//            val intent = Intent(this, TempChart::class.java)
-//            startActivity(intent)
-//        }
+
 
 
 //
@@ -47,7 +40,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         setSupportActionBar(toolBar)
         actionBar = supportActionBar!!
         actionBar?.title = "Home"
-        val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle (
+        val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
             drawer_layout,
             toolBar,
@@ -67,9 +60,16 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         outputFragment =   OutputFragment()
         settingsFragment = SettingsFragment()
         homeFragment = HomeFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(
+            FragmentTransaction.TRANSIT_FRAGMENT_OPEN
+        ).commit()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+
+
+
+
 
     }
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -85,24 +85,36 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         when(item.itemId){
             R.id.nav_btn1 -> {
                 homeFragment = HomeFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment)
+                    .setTransition(
+                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN
+                    ).commit()
                 actionBar?.title = "Home"
             }
             R.id.nav_btn2 -> {
                 inputFragment = InputFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, inputFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, inputFragment)
+                    .setTransition(
+                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN
+                    ).commit()
                 actionBar?.title = "Sensors"
 
             }
             R.id.nav_btn3 -> {
-                outputFragment =    OutputFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, outputFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                outputFragment = OutputFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, outputFragment)
+                    .setTransition(
+                        FragmentTransaction.TRANSIT_FRAGMENT_OPEN
+                    ).commit()
                 actionBar?.title = "Devices"
 
             }
             R.id.nav_btn4 -> {
                 settingsFragment = SettingsFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.frame_layout, settingsFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.frame_layout,
+                    settingsFragment
+                ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
                 actionBar?.title = "Settings"
 
             }

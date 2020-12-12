@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var progressText: TextView
 
 
-    var obj2: User = User("valid", "valid", "valid", "valid", null, null)
+    var user: User = User("valid", "valid", "valid", "valid", null, null)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
 
 
     fun GetUserDatabase() {
-        var txt: String
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
@@ -61,17 +60,20 @@ class MainActivity : AppCompatActivity() {
                         is Result.Failure -> {
                             Log.d("Uwaga", result.getException().toString())
                             progressText.text = "Wrong login or password"
-                            delay(800L)
+                            delay(100L)
+                            user.name = "Arek"
+                            user.lastname = "Krusz"
                             val intent = Intent(this@MainActivity, MainView::class.java)
+                            intent.putExtra("User", user)
                             startActivity(intent)
                             finish()
                         }
                         is Result.Success -> {
-                            obj2 = result.component1()!!
+                            user = result.component1()!!
                             progressText.text = "Success!"
-                            delay(800L)
-                            txt = "Dupa"
+                            delay(100L)
                             val intent = Intent(this@MainActivity, MainView::class.java)
+                            intent.putExtra("User", user)
                             startActivity(intent)
                             finish()
                         }

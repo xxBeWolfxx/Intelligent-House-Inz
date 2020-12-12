@@ -18,7 +18,14 @@
             android:resource="@xml/network_security_config" />
 
 
+<<<<<<< HEAD
         <activity android:name=".TempChart"/>
+=======
+        <activity android:name=".TempChart"
+            android:theme="@style/AppTheme"/>
+
+
+>>>>>>> 5127fb66696dae52ba914c5fc7b376b420aa15b5
         <activity
             android:name=".MainView"
             android:theme="@style/AppTheme.NoActionBar" />

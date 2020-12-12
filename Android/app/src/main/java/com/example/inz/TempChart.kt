@@ -1,40 +1,46 @@
 package com.example.inz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AATooltip
 
 class TempChart : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temp_chart)
-    val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
-    aaChartView.aa_drawChartWithChartModel(aaChartModel)
-}
+        val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
+        aaChartView.aa_drawChartWithChartModel(aaChartModel)
 
-val aaChartModel : AAChartModel = AAChartModel()
-    .chartType(AAChartType.Area)
-    .title("title")
-    .subtitle("subtitle")
-    .backgroundColor("#4b2b7f")
-    .dataLabelsEnabled(true)
-    .series(arrayOf(
-        AASeriesElement()
-            .name("Tokyo")
-            .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-        AASeriesElement()
-            .name("NewYork")
-            .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
-        AASeriesElement()
-            .name("London")
-            .data(arrayOf(0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0)),
-        AASeriesElement()
-            .name("Berlin")
-            .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
-    )
-    )
+    }
+
+    val aaChartModel : AAChartModel = AAChartModel()
+        .chartType(AAChartType.Area)
+        .title("Temperature")
+        .backgroundColor("#2A2A2B")
+        .yAxisGridLineWidth(0.00f)
+        .xAxisTickInterval(1)
+        .xAxisLabelsEnabled(true)
+        .categories(arrayOf("00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"))
+        .dataLabelsEnabled(true)
+        .yAxisMin(17.00f)
+        .series(arrayOf(
+            AASeriesElement()
+                .name("09.12.2020")
+                .data(arrayOf(18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,20.0)),
+            AASeriesElement()
+                .name("10.12.2020")
+                .data(arrayOf(18.5, 18.6, 18.5, 19.0, 19.2, 19.0, 19.2, 19.5, 20.0, 19.8, 19.9, 19.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,21.0)),
+            AASeriesElement()
+                .name("11.12.2020")
+                .data(arrayOf(18.2, 18.5, 19.0, 19.5, 19.9, 20.5, 21.0, 20.7, 20.5, 20.2, 19.6, 19.2,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,20.6))
+        )
+        )
+
 
 }

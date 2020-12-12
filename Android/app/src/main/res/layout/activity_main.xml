@@ -36,6 +36,7 @@
             android:layout_height="39dp"
             android:layout_below="@+id/login_progressbar"
             android:layout_alignStart="@+id/login_progressbar"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_progressbar" />

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
         btnOpenMainView.setOnClickListener {
             progressView = findViewById(R.id.progress_window)
             progressText = findViewById(R.id.progressText)
-            progressView.isVisible = true
-            progressText.text = "Loading"
+            progressView.visibility = View.VISIBLE
+            progressText.text = "Loading..."
             GetUserDatabase()
         }
 
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                             Log.d("Uwaga", result.getException().toString())
                             progressText.text = "Wrong login or password"
                             delay(800L)
-                            obj2.name = "Arek"
                             val intent = Intent(this@MainActivity, MainView::class.java)
                             startActivity(intent)
                             finish()

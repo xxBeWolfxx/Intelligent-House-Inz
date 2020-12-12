@@ -3,16 +3,22 @@ package com.example.inz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.mainview.*
+import kotlinx.coroutines.*
 
 
 class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -22,12 +28,15 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     lateinit var  outputFragment: OutputFragment
     lateinit var  settingsFragment: SettingsFragment
     lateinit var  actionBar: ActionBar
+    lateinit var user: User
 
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
+        user = intent.getSerializableExtra("User") as User
+
 
 
 
@@ -66,8 +75,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         nav_view.setNavigationItemSelectedListener(this)
 
-
-
+        //DatabaseObjects().GetESPs(1,1,this)
 
 
 
@@ -123,4 +131,9 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         return true
     }
 
+
+
+
+
 }
+

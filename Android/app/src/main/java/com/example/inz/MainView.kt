@@ -3,16 +3,25 @@ package com.example.inz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
 import androidx.fragment.app.FragmentTransaction
+import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.result.Result
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.mainview.*
+import kotlinx.coroutines.*
 
 
 class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -22,20 +31,16 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     lateinit var  outputFragment: OutputFragment
     lateinit var  settingsFragment: SettingsFragment
     lateinit var  actionBar: ActionBar
+    lateinit var user: User
 
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
+        user = intent.getSerializableExtra("User") as User
 
 
-
-
-//
-//        toggle = ActionBarDrawerToggle(this, drawer_layout, R.string.open, R.string.close)
-//        drawer_layout.addDrawerListener(toggle)
-//        toggle.syncState()
 
         setSupportActionBar(toolBar)
         actionBar = supportActionBar!!
@@ -53,9 +58,6 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
         inputFragment = InputFragment()
         outputFragment =   OutputFragment()
         settingsFragment = SettingsFragment()
@@ -65,20 +67,15 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         ).commit()
 
         nav_view.setNavigationItemSelectedListener(this)
+        SetHeader(user, nav_view.getHeaderView(0))
 
 
-
+        //DatabaseObjects().GetESPs(1,1,this)
 
 
 
     }
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if(toggle.onOptionsItemSelected(item))
-//        {
-//            return true
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+
 
 
     override fun onNavigationItemSelected(item: MenuItem):Boolean{
@@ -90,6 +87,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
                 actionBar?.title = "Home"
+
             }
             R.id.nav_btn2 -> {
                 inputFragment = InputFragment()
@@ -122,5 +120,17 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+    private fun SetHeader(user: User, headerView: View)
+    {
+        val header_name = headerView.findViewById<TextView>(R.id.header_name)
+        val header_email = headerView.findViewById<TextView>(R.id.header_email)
+        header_email.text = user.email
+        header_name.text = user.name
+    }
+
+
+
+
 
 }
+

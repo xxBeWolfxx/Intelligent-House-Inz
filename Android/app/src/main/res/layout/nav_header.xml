@@ -21,6 +21,7 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:id="@+id/header_name"
         android:layout_height="wrap_content"
         android:text="Użytkownik1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
@@ -28,6 +29,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/header_email"
         android:text="adres.email@gmail.com"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

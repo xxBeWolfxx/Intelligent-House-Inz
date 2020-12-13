@@ -7,9 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.github.kittinunf.fuel.httpGet
@@ -23,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var progressView: ConstraintLayout
     lateinit var progressText: TextView
+    lateinit var logo: ImageView
+    lateinit var inputView: CardView
+    lateinit var buttonView: CardView
 
 
     var user: User = User("valid", "valid", "valid", "valid", null, null)
@@ -33,6 +40,15 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         setContentView(R.layout.activity_main)
+
+        val logo_animation: Animation = AnimationUtils.loadAnimation(this, R.anim.logo_animation)
+        val bottomAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
+        logo = findViewById(R.id.logo)
+        inputView = findViewById(R.id.cardView2)
+        buttonView = findViewById(R.id.cardView)
+        logo.startAnimation(logo_animation)
+        inputView.startAnimation(bottomAnimation)
+        buttonView.startAnimation(bottomAnimation)
 
 
 
@@ -63,6 +79,7 @@ class MainActivity : AppCompatActivity() {
                             delay(100L)
                             user.name = "Arek"
                             user.lastname = "Krusz"
+                            user.email = "aaa@aaa.com"
                             val intent = Intent(this@MainActivity, MainView::class.java)
                             intent.putExtra("User", user)
                             startActivity(intent)

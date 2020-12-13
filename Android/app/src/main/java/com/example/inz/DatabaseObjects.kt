@@ -1,77 +1,121 @@
 package com.example.inz
 
-import android.content.Context
-import android.content.pm.LauncherApps
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.github.kittinunf.fuel.android.extension.responseJson
-import com.github.kittinunf.fuel.core.FuelError
 import com.github.kittinunf.fuel.core.ResponseDeserializable
-import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
 import kotlinx.coroutines.*
 import java.io.Serializable
-import kotlin.coroutines.suspendCoroutine
 
 class DatabaseObjects():ViewModel(){
     val URL = "http://192.168.0.250:8000/sh"
     val URLuser = ""
 
-    fun GetESPs(numberESPO: Int, numberESPS: Int, window: Context?)
+    fun GetESPs(numberESPO: Int, numberESPS: Int, user: User)
+    {
+        if (numberESPS <= 1)  GetESPS(user)
+        else GetListESPS(user)
+
+        if (numberESPO <= 1) GetESPO(user)
+        else GetListESPO(user)
+
+
+
+    }
+    fun GetListESPO(user: User)
     {
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
-                    .responseObject(User.DeserializerUser())
                 withContext(Dispatchers.Main)
                 {
-                    when (result) {
-                        is Result.Failure -> {
-                            Toast.makeText(window, "CHUJEK", Toast.LENGTH_LONG).show()
-                        }
-                        is Result.Success -> {
+                    val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                            .responseObject(ESPO.DeserializerESPList())
+                    user.ESPoutputs = result.component1()!!
 
-                        }
-                    }
                 }
             }
             catch (e: Exception)
             {
                 withContext(Dispatchers.Main)
                 {
-                    Toast.makeText(window, "Something went wrong :( Check Internet", Toast.LENGTH_LONG)
+
                 }
             }
         }
-
     }
-    fun GetListESPO()
+    fun GetListESPS(user: User)
     {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                withContext(Dispatchers.Main)
+                {
+                    val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                            .responseObject(ESPS.DeserializerESPList())
+                    user.ESPsensor = result.component1()!!
 
+                }
+            }
+            catch (e: Exception)
+            {
+                withContext(Dispatchers.Main)
+                {
+
+                }
+            }
+        }
     }
-    fun GetListESPS()
+    fun GetESPO(user: User)
     {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                withContext(Dispatchers.Main)
+                {
+                    val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                            .responseObject(ESPO.DeserializerESP())
+                    user.ESPoutputs = arrayOf(result.component1()!!)
 
+
+                }
+            }
+            catch (e: Exception)
+            {
+                withContext(Dispatchers.Main)
+                {
+
+                }
+            }
+        }
     }
-    fun GetESPO()
+    fun GetESPS(user: User)
     {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                withContext(Dispatchers.Main)
+                {
+                    val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                            .responseObject(ESPS.DeserializerESP())
+                    user.ESPsensor = arrayOf(result.component1()!!)
 
-    }
-    fun GetESPS()
-    {
 
+                }
+            }
+            catch (e: Exception)
+            {
+                withContext(Dispatchers.Main)
+                {
+
+                }
+            }
+        }
     }
 
 
 }
 
 
-//
-data class User(var id:String,var name:String, var lastname: String, var email: String, var ESPoutputs: List<ESPO>? = null, var ESPsensor: List<ESPS>? = null):Serializable {
+
+data class User(var id:String,var name:String, var lastname: String, var email: String, var ESPoutputs: Array<ESPO>? = null, var ESPsensor: Array<ESPS>? = null):Serializable {
 
         class DeserializerUser: ResponseDeserializable<User>{
             override fun deserialize(content: String) = Gson().fromJson(content, User::class.java)

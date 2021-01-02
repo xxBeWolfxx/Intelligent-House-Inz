@@ -10,7 +10,28 @@ import java.io.Serializable
 
 class DatabaseObjects():ViewModel(){
     val URL = "http://192.168.0.250:8000/sh"
-    val URLuser = ""
+    val URLuser = URL + "/userdetail/"
+
+//    fun CreateArrayESP(user: User, mode: Boolean): ArrayList<ItemCardView>
+//    {
+//        var list:ArrayList<ItemCardView>
+//        if (mode)                                   //ESPO
+//        {
+//            val length = user.ESPoutputs!!.size
+//            for (item in user.ESPoutputs!!)
+//            {
+//
+//            }
+//        }
+//        else                                        //ESPS
+//        {
+//
+//        }
+//
+//
+//
+//        return list
+//    }
 
     fun GetESPs(numberESPO: Int, numberESPS: Int, user: User)
     {
@@ -19,9 +40,6 @@ class DatabaseObjects():ViewModel(){
 
         if (numberESPO <= 1) GetESPO(user)
         else GetListESPO(user)
-
-
-
     }
     fun GetListESPO(user: User)
     {

@@ -38,13 +38,17 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
+
         user = intent.getSerializableExtra("User") as User
+        SetHeader(user, nav_view.getHeaderView(0))
+        MyApplicaton.User = user
+
 
 
 
         setSupportActionBar(toolBar)
         actionBar = supportActionBar!!
-        actionBar?.title = "Home"
+        actionBar.title = "Home"
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
             drawer_layout,
@@ -67,7 +71,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         ).commit()
 
         nav_view.setNavigationItemSelectedListener(this)
-        SetHeader(user, nav_view.getHeaderView(0))
+
 
 
         //DatabaseObjects().GetESPs(1,1,this)
@@ -86,7 +90,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Home"
+                actionBar.title = "Home"
 
             }
             R.id.nav_btn2 -> {
@@ -95,7 +99,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Sensors"
+                actionBar.title = "Sensors"
 
             }
             R.id.nav_btn3 -> {
@@ -120,6 +124,8 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
     private fun SetHeader(user: User, headerView: View)
     {
         val header_name = headerView.findViewById<TextView>(R.id.header_name)

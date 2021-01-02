@@ -8,39 +8,6 @@
     android:clickable="true"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/progress_window"
-        android:visibility="invisible"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/button_login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ProgressBar
-            android:id="@+id/login_progressbar"
-            android:layout_width="106dp"
-            android:layout_height="106dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/progressText"
-            android:layout_width="155dp"
-            android:layout_height="39dp"
-            android:layout_below="@+id/login_progressbar"
-            android:layout_alignStart="@+id/login_progressbar"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_progressbar" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

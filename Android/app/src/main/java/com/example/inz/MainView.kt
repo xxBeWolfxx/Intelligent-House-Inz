@@ -43,7 +43,10 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         SetHeader(user, nav_view.getHeaderView(0))
         MyApplicaton.User = user
 
-
+        GlobalScope.launch(Dispatchers.IO)
+        {
+            DatabaseObjects().GetESPs(user.ESPoCount, user.ESPsCount, user)
+        }
 
 
         setSupportActionBar(toolBar)

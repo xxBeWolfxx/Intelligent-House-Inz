@@ -30,42 +30,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718d5773-de16-47cb-b449-daa98aa25d50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/ItemCardView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MyAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/anim_activity_to_left.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/anim_activity_to_right.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/itemcard.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/loading_dialog.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MyApplicaton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/MyApplicaton.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/inz/OutputFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/inz/OutputFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/anim/bottom_animation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/anim/bottom_animation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_output.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_output.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +42,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_27]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -228,54 +197,54 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="748" y="260" key="AndroidCreateResourceFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1607817228384" />
-    <state width="415" height="520" key="DebuggerActiveHint" timestamp="1609333930143">
+    <state width="458" height="520" key="DebuggerActiveHint" timestamp="1609714911095">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="415" height="520" key="DebuggerActiveHint/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609333930143" />
+    <state width="458" height="520" key="DebuggerActiveHint/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609714911095" />
     <state width="415" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1607812499641" />
-    <state width="1877" height="324" key="GridCell.Tab.0.bottom" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.0.bottom" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.0.bottom/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.0.bottom/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="913" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607867421786" />
     <state width="914" height="323" key="GridCell.Tab.0.bottom/1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1608407232911" />
-    <state width="1877" height="324" key="GridCell.Tab.0.center" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.0.center" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.0.center/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.0.center/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="913" height="269" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607867421786" />
     <state width="914" height="323" key="GridCell.Tab.0.center/1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1608407232911" />
-    <state width="1877" height="324" key="GridCell.Tab.0.left" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.0.left" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.0.left/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.0.left/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="913" height="269" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607867421786" />
     <state width="914" height="323" key="GridCell.Tab.0.left/1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1608407232911" />
-    <state width="1877" height="324" key="GridCell.Tab.0.right" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.0.right" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.0.right/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.0.right/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="913" height="269" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607867421786" />
     <state width="914" height="323" key="GridCell.Tab.0.right/1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1608407232911" />
-    <state width="1877" height="324" key="GridCell.Tab.1.bottom" timestamp="1609334811395">
+    <state width="1877" height="324" key="GridCell.Tab.1.bottom" timestamp="1609715566912">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.1.bottom/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811395" />
+    <state width="1877" height="324" key="GridCell.Tab.1.bottom/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566912" />
     <state width="1876" height="264" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1607820068501" />
-    <state width="1877" height="324" key="GridCell.Tab.1.center" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.1.center" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.1.center/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.1.center/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="1876" height="264" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1607820068501" />
-    <state width="1877" height="324" key="GridCell.Tab.1.left" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.1.left" timestamp="1609715566911">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.1.left/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.1.left/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566911" />
     <state width="1876" height="264" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1607820068501" />
-    <state width="1877" height="324" key="GridCell.Tab.1.right" timestamp="1609334811394">
+    <state width="1877" height="324" key="GridCell.Tab.1.right" timestamp="1609715566912">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="324" key="GridCell.Tab.1.right/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609334811394" />
+    <state width="1877" height="324" key="GridCell.Tab.1.right/-1920.109.1920.1050/0.0.1920.1170@0.0.1920.1170" timestamp="1609715566912" />
     <state width="1876" height="264" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1607820068501" />
     <state x="461" y="229" key="SettingsEditor" timestamp="1609537695056">
       <screen x="0" y="0" width="1920" height="1170" />
@@ -293,16 +262,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/HomeFragment.kt</url>
           <line>59</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt</url>
-          <line>43</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt</url>
-          <line>41</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/OutputFragment.kt</url>
@@ -349,7 +308,92 @@
           <line>70</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt</url>
+          <line>51</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>40</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>44</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>49</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>53</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>111</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>127</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/MainView.kt</url>
+          <line>47</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>104</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>107</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>106</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>108</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>130</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>129</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>128</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/inz/DatabaseObjects.kt</url>
+          <line>131</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="resultO" language="kotlin" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

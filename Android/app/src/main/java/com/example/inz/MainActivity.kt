@@ -12,10 +12,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
@@ -31,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var bodyDialog: TextView
 
 
-    var user: User = User("valid", "valid", "valid", "valid", null, null)
+    var user: User = User("Arek", "Krusz", "valid@valid.pl", "valid", "valid", "null", 0, 0, null, null)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -62,49 +59,63 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val btnOpenMainView: Button = findViewById(R.id.button_login)
         btnOpenMainView.setOnClickListener {
+            val login: String = findViewById<EditText>(R.id.editTextTextLogin).text.toString()
+            val password: String = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
             dialog.show()
             bodyDialog.text = "Loading..."
-            GetUserDatabase(dialog)
+            GetUserDatabase(dialog, login, password)
         }
 
 
     }
 
 
-    fun GetUserDatabase(dialog: Dialog) {
+    fun GetUserDatabase(dialog: Dialog, login: String, password: String) {
+
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                val (request, response, result) = ("${DatabaseObjects().URLuser}${login}/?format=json").httpGet().authenticate(login,password)
                     .responseObject(User.DeserializerUser())
                 withContext(Dispatchers.Main)
                 {
+
                     when (result) {
                         is Result.Failure -> {
                             Log.d("Uwaga", result.getException().toString())
                             bodyDialog.text = "Wrong login or password"
+                            //
                             delay(100L)
-                            user.name = "Arek"
-                            user.lastname = "Krusz"
-                            user.email = "aaa@aaa.com"
+                            //
                             val intent = Intent(this@MainActivity, MainView::class.java)
                             intent.putExtra("User", user)
-                            delay(300L)
+                            delay(700L)
                             dialog.dismiss()
                             startActivity(intent)
-                            //overridePendingTransition(R.anim.anim_activity_to_right, R.anim.anim_activity_to_left) NIE DZIALA
                             finish()
                         }
                         is Result.Success -> {
-                            user = result.component1()!!
-                            bodyDialog.text = "Success!"
-                            delay(100L)
-                            val intent = Intent(this@MainActivity, MainView::class.java)
-                            intent.putExtra("User", user)
-                            delay(300L)
-                            startActivity(intent)
-                            finish()
+                            val userTemp = result.component1()!!
+                            if (password == userTemp.password)
+                            {
+                                user = userTemp
+                                bodyDialog.text = "Success!"
+                                delay(100L)
+                                val intent = Intent(this@MainActivity, MainView::class.java)
+                                intent.putExtra("User", user)
+                                delay(700L)
+                                dialog.dismiss()
+                                startActivity(intent)
+                                finish()
+                            }
+                            else
+                            {
+                                bodyDialog.text = "Wrong password!"
+                                delay(700L)
+                                dialog.dismiss()
+                            }
                         }
                     }
                 }

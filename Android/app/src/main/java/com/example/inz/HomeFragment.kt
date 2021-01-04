@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_home.*
 import android.widget.Button
+import android.widget.Toast
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -48,12 +49,22 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        
 
-            // Inflate the layout for this fragment
+
+        //DatabaseObjects().GetESPs(1,1, getActivity())
+
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+<<<<<<< HEAD
+=======
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        
+
+        super.onViewCreated(view, savedInstanceState)
+    }
+>>>>>>> 5e44eb12c49283006206f7aa07dc5534acdd29d9
 
     companion object {
         /**

@@ -6,11 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< HEAD
 import kotlinx.android.synthetic.main.fragment_home.*
-=======
 import android.widget.Button
->>>>>>> 5127fb66696dae52ba914c5fc7b376b420aa15b5
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

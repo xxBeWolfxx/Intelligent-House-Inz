@@ -13,16 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-//*****************variables to set RecyclerView**********************
-lateinit var exampleList: ArrayList<ItemCardView>
-var RecyclerTasks: RecyclerView? = null
-lateinit var adapter: MyAdapter
-var clickposition:Int = -1 //position of list in RecyclerView
 
-//******************variables to check if buttons are clicked*************************
-var isclicked:Boolean = false
-var adding:Boolean = false
-lateinit var  user: User
 
 /**
  * A simple [Fragment] subclass.
@@ -33,6 +24,17 @@ class OutputFragment : Fragment(), MyAdapter.OnItemClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    //*****************variables to set RecyclerView**********************
+    lateinit var exampleList: ArrayList<ItemCardView>
+    var RecyclerTasks: RecyclerView? = null
+    lateinit var adapter: MyAdapter
+    var clickposition:Int = -1 //position of list in RecyclerView
+
+    //******************variables to check if buttons are clicked*************************
+    var isclicked:Boolean = false
+    var adding:Boolean = false
+    lateinit var  user: User
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,9 +60,7 @@ class OutputFragment : Fragment(), MyAdapter.OnItemClickListener {
 
 
         exampleList = ArrayList<ItemCardView>()
-
-        var a = ItemCardView(R.drawable.home, "Uwaga", "Uwaga", 1)
-        exampleList.add(a)
+        exampleList = DatabaseObjects().CreateArrayESP(user, true)
         adapter = MyAdapter(exampleList, this)
 
         //              Set RecyclerView with list of components from tasks

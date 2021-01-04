@@ -87,14 +87,9 @@ class MainActivity : AppCompatActivity() {
                             Log.d("Uwaga", result.getException().toString())
                             bodyDialog.text = "Wrong login or password"
                             //
-                            delay(100L)
+                            delay(900L)
                             //
-                            val intent = Intent(this@MainActivity, MainView::class.java)
-                            intent.putExtra("User", user)
-                            delay(700L)
-                            dialog.dismiss()
-                            startActivity(intent)
-                            finish()
+                            
                         }
                         is Result.Success -> {
                             val userTemp = result.component1()!!

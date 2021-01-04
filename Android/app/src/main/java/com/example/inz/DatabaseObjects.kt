@@ -15,26 +15,32 @@ class DatabaseObjects():ViewModel(){
     private val URLuserESPS = "$URL/userespsensor/"
     private val URLuserESPO = "$URL/userespout/"
 
-//    fun CreateArrayESP(user: User, mode: Boolean): ArrayList<ItemCardView>
-//    {
-//        var list:ArrayList<ItemCardView>
-//        if (mode)                                   //ESPO
-//        {
-//            val length = user.ESPoutputs!!.size
-//            for (item in user.ESPoutputs!!)
-//            {
-//
-//            }
-//        }
-//        else                                        //ESPS
-//        {
-//
-//        }
-//
-//
-//
-//        return list
-//    }
+    fun CreateArrayESP(user: User, mode: Boolean): ArrayList<ItemCardView>
+    {
+        val list = ArrayList<ItemCardView>()
+
+        if (mode)                                   //ESPO
+        {
+            for (i in user.ESPoutputs!!)
+            {
+                val item = ItemCardView(R.drawable.home, i.name, i.status.toString(),i.id.toInt())
+                list += item
+            }
+        }
+        else                                        //ESPS
+        {
+            for (i in user.ESPsensor!!)
+            {
+                val item = ItemCardView(R.drawable.humidity, i.name, i.valueTemp.toString(),i.id.toInt())
+                list += item
+            }
+
+        }
+
+
+
+        return list
+    }
 
     fun GetESPs(numberESPO: Int, numberESPS: Int, user: User)
     {
@@ -158,7 +164,7 @@ data class User(var id:String,var name:String, var lastname: String, var email: 
             override fun deserialize(content: String): Array<User>? = Gson().fromJson(content, Array<User>::class.java)
         }
 }
-data class  ESPO(var name: String, var pin: Int, var status: Boolean, var description: String):Serializable {
+data class  ESPO(var id: String, var name: String, var pin: Int, var status: Boolean, var description: String):Serializable {
     class DeserializerESP: ResponseDeserializable<ESPO>{
         override fun deserialize(content: String) = Gson().fromJson(content, ESPO::class.java)
     }
@@ -166,7 +172,7 @@ data class  ESPO(var name: String, var pin: Int, var status: Boolean, var descri
         override fun deserialize(content: String): Array<ESPO>? = Gson().fromJson(content, Array<ESPO>::class.java)
     }
 }
-data class  ESPS(var name: String, var pin: Int, var valueTemp: Int, var valueAvgDay: String, var valueAvgWeek: String, var description: String):Serializable {
+data class  ESPS(var id: String, var name: String, var pin: Int, var valueTemp: Int, var valueAvgDay: String, var valueAvgWeek: String, var description: String):Serializable {
     class DeserializerESP: ResponseDeserializable<ESPS>{
         override fun deserialize(content: String) = Gson().fromJson(content, ESPS::class.java)
     }
@@ -175,14 +181,6 @@ data class  ESPS(var name: String, var pin: Int, var valueTemp: Int, var valueAv
     }
 }
 
-
-
-fun appendO(arr: Array<ESPO>, element: ESPO): Array<ESPO?> {
-    val array = arrayOfNulls<ESPO>(arr.size + 1)
-    System.arraycopy(arr, 0, array, 0, arr.size)
-    array[arr.size] = element
-    return array
-}
 
 
 

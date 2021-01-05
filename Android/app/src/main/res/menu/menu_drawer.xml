@@ -23,13 +23,9 @@
         </menu>
     </item>
 
-    <item android:title="Settings">
+    <item android:title="Other">
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/nav_btn4"
-                    android:icon="@drawable/settings"
-                    android:title="Settings" />
                 <item
                     android:id="@+id/nav_btn5"
                     android:icon="@drawable/info"

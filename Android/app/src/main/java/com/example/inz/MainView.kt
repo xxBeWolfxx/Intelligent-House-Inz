@@ -29,7 +29,6 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     lateinit var homeFragment: HomeFragment
     lateinit var  inputFragment: InputFragment
     lateinit var  outputFragment: OutputFragment
-    lateinit var  settingsFragment: SettingsFragment
     lateinit var  actionBar: ActionBar
     lateinit var user: User
 
@@ -67,7 +66,6 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         inputFragment = InputFragment()
         outputFragment =   OutputFragment()
-        settingsFragment = SettingsFragment()
         homeFragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(
             FragmentTransaction.TRANSIT_FRAGMENT_OPEN
@@ -79,11 +77,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         //DatabaseObjects().GetESPs(1,1,this)
 
-
-
     }
-
-
 
     override fun onNavigationItemSelected(item: MenuItem):Boolean{
         when(item.itemId){
@@ -112,15 +106,6 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
                 actionBar?.title = "Devices"
-
-            }
-            R.id.nav_btn4 -> {
-                settingsFragment = SettingsFragment()
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.frame_layout,
-                    settingsFragment
-                ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
-                actionBar?.title = "Settings"
 
             }
         }

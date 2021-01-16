@@ -54,7 +54,7 @@ class OutputView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tempSave = ESPO("0","name",0, false, "")
+        tempSave = ESPO("0","name",0, false, "",null, 0 , 0)
         editTextName = view.findViewById(R.id.editTextNameOutput)
         editTextPin = view.findViewById(R.id.editTextPinOutput)
         switchStatusOutput = view.findViewById(R.id.switchStatusOutput)

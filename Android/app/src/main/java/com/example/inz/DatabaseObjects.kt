@@ -3,7 +3,10 @@ package com.example.inz
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.github.kittinunf.fuel.core.ResponseDeserializable
+import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpGet
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.fuel.httpPut
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
 import kotlinx.coroutines.*
@@ -18,7 +21,6 @@ class DatabaseObjects():ViewModel(){
     fun CreateArrayESP(user: User, mode: Boolean): ArrayList<ItemCardView>
     {
         val list = ArrayList<ItemCardView>()
-
         if (mode)                                   //ESPO
         {
             for (i in user.ESPoutputs!!)
@@ -34,11 +36,7 @@ class DatabaseObjects():ViewModel(){
                 val item = ItemCardView(R.drawable.humidity, i.name, i.valueTemp.toString(),i.id.toInt())
                 list += item
             }
-
         }
-
-
-
         return list
     }
 
@@ -89,7 +87,7 @@ class DatabaseObjects():ViewModel(){
             try {
                 withContext(Dispatchers.Main)
                 {
-                    val (request, response, result) = ("http://192.168.0.250:8000/sh/userespsensor/1/").httpGet()
+                    val (request, response, result) = ("$URLuserESPS${user.id}").httpGet()
                             .responseObject(ESPS.DeserializerESPList())
                     user.ESPsensor = result.component1()!!
 
@@ -113,8 +111,6 @@ class DatabaseObjects():ViewModel(){
                     "$URLuserESPO${user.id}/?format=json".httpGet().responseObject(ESPO.DeserializerESPList()){request, response, resultO ->
                         user.ESPoutputs = resultO.get()
                     }
-
-
                 }
             }
             catch (e: Exception)
@@ -133,7 +129,7 @@ class DatabaseObjects():ViewModel(){
 
                 withContext(Dispatchers.Main)
                 {
-                   "http://192.168.0.250:8000/sh/userespsensor/1/".httpGet().responseObject(ESPS.DeserializerESPList()) {request, response, resultS ->
+                    "$URLuserESPS${user.id}".httpGet().responseObject(ESPS.DeserializerESPList()) {request, response, resultS ->
                         user.ESPsensor = resultS.get()
                     }
                 }
@@ -149,8 +145,138 @@ class DatabaseObjects():ViewModel(){
         }
     }
 
+    fun SaveESPS(esps: ESPS, method: String, user: User)
+    {
+        val gsonStr: String? = Gson().toJson(esps)
+        if (method == "POST")
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/espsensordetail/${esps.id}/".httpPost().body(gsonStr!!).response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+        else if(method == "PUT")
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/userespsensor/${user.id}/".httpPut().body(gsonStr!!).response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+
+    fun DeleteESP(espo: ESPO? = null, esps: ESPS? = null)
+    {
+        if (espo != null)
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/espoutdetail/${espo.id}".httpDelete().response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+        if (esps != null)
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/espsensordetail/${esps.id}".httpDelete().response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+
+    fun SaveESPO(espo: ESPO, method: String, user: User)
+    {
+        val gsonStr: String? = Gson().toJson(espo)
+        if (method == "POST")
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/espoutdetail/${espo.id}/".httpPost().body(gsonStr!!).response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+        else if(method == "PUT")
+        {
+            GlobalScope.launch(Dispatchers.IO) {
+                try {
+                    withContext(Dispatchers.Main)
+                    {
+                        "$URL/userespout/${user.id}/".httpPut().body(gsonStr!!).response()
+                    }
+                }
+
+                catch (e: Exception)
+                {
+                    withContext(Dispatchers.Main)
+                    {
+
+                    }
+                }
+            }
+        }
+    }
+
 
 }
+
+
 
 
 
@@ -172,7 +298,7 @@ data class  ESPO(var id: String, var name: String, var pin: Int, var status: Boo
         override fun deserialize(content: String): Array<ESPO>? = Gson().fromJson(content, Array<ESPO>::class.java)
     }
 }
-data class  ESPS(var id: String, var name: String, var pin: Int, var valueTemp: Int, var valueAvgDay: String, var valueAvgWeek: String, var description: String):Serializable {
+data class  ESPS(var id: String, var name: String, var pin: Int, var status: Boolean, var valueTemp: Int, var valueAvgDay: String, var valueAvgWeek: String, var description: String):Serializable {
     class DeserializerESP: ResponseDeserializable<ESPS>{
         override fun deserialize(content: String) = Gson().fromJson(content, ESPS::class.java)
     }

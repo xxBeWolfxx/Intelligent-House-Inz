@@ -3,6 +3,7 @@ package com.example.inz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -73,12 +74,16 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         nav_view.setNavigationItemSelectedListener(this)
 
-
+        RefreshButton.setOnClickListener {
+            finish()
+            startActivity(intent)
+        }
 
         //DatabaseObjects().GetESPs(1,1,this)
 
     }
 
+    @SuppressLint("ShowToast")
     override fun onNavigationItemSelected(item: MenuItem):Boolean{
         when(item.itemId){
             R.id.nav_btn1 -> {
@@ -105,7 +110,18 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Devices"
+                actionBar.title = "Devices"
+
+            }
+            R.id.nav_btn6 -> {
+
+                GlobalScope.launch() {
+                    val intent = Intent(this@MainView, MainActivity::class.java)
+                    delay(700)
+                    startActivity(intent)
+                    finish()
+
+                }
 
             }
         }

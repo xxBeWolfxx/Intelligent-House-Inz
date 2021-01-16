@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
 
                     when (result) {
                         is Result.Failure -> {
-                            Log.d("Uwaga", result.getException().toString())
                             bodyDialog.text = "Wrong login or password"
                             //
                             delay(900L)

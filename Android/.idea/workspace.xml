@@ -32,6 +32,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718d5773-de16-47cb-b449-daa98aa25d50" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+=======
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/d01d.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/d02d.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/d03d.png" afterDir="false" />
@@ -73,6 +76,7 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_drawer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

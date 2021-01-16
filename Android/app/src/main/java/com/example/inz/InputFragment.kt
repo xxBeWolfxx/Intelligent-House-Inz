@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_input.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,7 +50,7 @@ class InputFragment : Fragment(),  MyAdapter.OnItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
 
-        Toast.makeText(activity?.applicationContext, "CHUJEK", Toast.LENGTH_LONG).show()
+
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_input, container, false)
@@ -60,20 +61,21 @@ class InputFragment : Fragment(),  MyAdapter.OnItemClickListener {
 
 
         user = MyApplicaton.User!!
-
-
         listInputs = ArrayList<ItemCardView>()
         listInputs = DatabaseObjects().CreateArrayESP(user, false)
         adapter = MyAdapter(listInputs, this)
-
         //              Set RecyclerView with list of components from tasks
         RecyclerInputs = view.findViewById(R.id.RycyclerInputs)
-
-
-
         RecyclerInputs?.adapter = adapter
         RecyclerInputs?.layoutManager = LinearLayoutManager(view.context)
         RecyclerInputs?.setHasFixedSize(true)
+
+        imageButtonInputAdder.setOnClickListener {
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, newInstance(false))
+            intent?.addToBackStack(null)
+            intent?.commit()
+        }
     }
 
     companion object {
@@ -87,18 +89,27 @@ class InputFragment : Fragment(),  MyAdapter.OnItemClickListener {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            InputFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance(param1: Boolean):InputView {
+            val bundle = Bundle()
+            bundle.putBoolean("status", param1)
+            val fragment = InputView()
+            fragment.arguments = bundle
+
+            return fragment
+
+        }
     }
 
     override fun onItemClick(position: Int) {
-        Log.d("Klik", "Position $position")
-        //adding = false
         clickposition = position
+        val tempESPS = listInputs[position]
+        MyApplicaton.ESPS = user.ESPsensor?.find { it.id.toInt() == tempESPS.ID}
+
+
+
+        val intent = activity?.supportFragmentManager?.beginTransaction()
+        intent?.replace(R.id.frame_layout, newInstance(true))
+        intent?.addToBackStack(null)
+        intent?.commit()
     }
 }

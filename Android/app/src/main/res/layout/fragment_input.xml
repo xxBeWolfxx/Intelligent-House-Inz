@@ -47,6 +47,7 @@
             android:id="@+id/RycyclerInputs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#00FFFFFF"
             tools:listitem="@layout/itemcard" />
     </androidx.cardview.widget.CardView>
 

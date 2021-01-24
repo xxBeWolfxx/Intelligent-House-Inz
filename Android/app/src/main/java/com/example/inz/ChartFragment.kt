@@ -37,8 +37,8 @@ class ChartFragment : Fragment() {
         )
         .zoomType(AAChartZoomType.X)
 
- //       .backgroundColor("#D6D6D6")
-        .backgroundColor(AAGradientColor.linearGradient("#1F1139","#041F39"))
+        .backgroundColor("#040925")
+        //.backgroundColor(AAGradientColor.linearGradient("#1F1139","#041F39"))
         .markerSymbol(AAChartSymbolType.Circle)
         .colorsTheme(arrayOf("#700c28", "#5814D3", "#06caf4")
         )

@@ -1,13 +1,13 @@
 package com.example.inz
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Switch
-import android.widget.TextView
+import android.widget.*
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.fragment_input_view.*
 import kotlinx.android.synthetic.main.fragment_output_view.*
 import java.util.*
@@ -33,6 +33,9 @@ class OutputView : Fragment() {
     lateinit var switchStatusOutput: Switch
     lateinit var editTextDescription: EditText
     lateinit var tempSave:ESPO
+    lateinit var sensors:Array<ESPS>
+    lateinit var adapter:ArrayAdapter<String>
+    lateinit var list: List<String>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +44,8 @@ class OutputView : Fragment() {
             status = it
         }
         if (status == true) ESPO = MyApplicaton.ESPO!!
+        sensors = MyApplicaton.User!!.ESPsensor!!
+        list = CreateList(MyApplicaton.User!!)
 
     }
 
@@ -52,13 +57,19 @@ class OutputView : Fragment() {
         return inflater.inflate(R.layout.fragment_output_view, container, false)
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tempSave = ESPO("0","name",0, false, "",null, 0 , 0, 0)
+        tempSave = ESPO("0","name",0, false, "",null, null , null, 0)
         editTextName = view.findViewById(R.id.editTextNameOutput)
         editTextPin = view.findViewById(R.id.editTextPinOutput)
         switchStatusOutput = view.findViewById(R.id.switchStatusOutput)
         editTextDescription = view.findViewById(R.id.editTextDescriptionOutput)
+
+
+        adapter = ArrayAdapter(requireContext(),R.layout.support_simple_spinner_dropdown_item,list)
+        var spinner = view.findViewById(R.id.Sensor_spinner) as Spinner
+        spinner.adapter = adapter
 
         if (status == true)
         {
@@ -66,6 +77,23 @@ class OutputView : Fragment() {
             editTextPin.setText(ESPO.pin.toString())
             editTextDescription.setText(ESPO.description)
             switchStatusOutput.isChecked = ESPO.status
+            if ((ESPO.sensor != "").and(ESPO.sensor != null))
+            {
+                spinner.setSelection(FindName(MyApplicaton.User!!, ESPO.sensor!!.toInt(),list).toInt())
+                optymal.isVisible = true
+
+                if (ESPO.minValue == null) editTextMinValue.setText("")
+                else editTextMinValue.setText(ESPO.minValue, TextView.BufferType.EDITABLE)
+
+                if (ESPO.maxValue == null) {editTextMaxValue.setText("")}
+                else {editTextMaxValue.setText(ESPO.maxValue)}
+
+
+            }
+            else{
+                spinner.setSelection(0)
+                optymal.isVisible = false
+            }
 
         }
         else if (status == false){
@@ -90,12 +118,26 @@ class OutputView : Fragment() {
 
         }
         btnSaveOutput.setOnClickListener {
+            val SpinnerText = spinner.selectedItem.toString()
+
+
             if (status == true)
             {
                 ESPO.name = editTextName.text.toString()
                 ESPO.pin = editTextPin.text.toString().toInt()
                 ESPO.status = switchStatusOutput.isChecked
                 ESPO.description = editTextDescription.text.toString()
+                if (SpinnerText == "none")
+                {
+                    ESPO.sensor = ""
+                }
+                else{
+                    ESPO.sensor = FindSensor(MyApplicaton.User!!, SpinnerText)
+                    if (editTextMaxValue.text?.toString() == "") ESPO.maxValue = null
+                    else ESPO.maxValue = editTextMaxValue.text?.toString()
+                    if (editTextMinValue.text?.toString() == "") ESPO.minValue = null
+                    else ESPO.minValue = editTextMinValue.text?.toString()
+                }
                 DatabaseObjects().SaveESPO(ESPO, "POST",MyApplicaton.User!!)    //POST
             }
             else{
@@ -104,6 +146,17 @@ class OutputView : Fragment() {
                 tempSave.pin = editTextPin.text.toString().toInt()
                 tempSave.name = editTextName.text.toString()
                 MyApplicaton.User!!.ESPoutputs = AddESPtoUSER(MyApplicaton.User!!.ESPoutputs!!, tempSave)
+                if (SpinnerText == "none")
+                {
+                    tempSave.sensor = ""
+                }
+                else{
+                    tempSave.sensor = FindSensor(MyApplicaton.User!!, SpinnerText)
+                    if (editTextMaxValue.text?.toString() == "") tempSave.maxValue = null
+                    else tempSave.maxValue = editTextMaxValue.text?.toString()
+                    if (editTextMinValue.text?.toString() == "") tempSave.minValue = null
+                    else tempSave.minValue = editTextMinValue.text?.toString()
+                }
 
                 DatabaseObjects().SaveESPO(MyApplicaton.User!!.ESPoutputs!![MyApplicaton.User!!.ESPoutputs!!.size - 1]  , "PUT",MyApplicaton.User!!)     //PUT
             }
@@ -111,6 +164,17 @@ class OutputView : Fragment() {
             intent?.replace(R.id.frame_layout, OutputFragment())
             intent?.disallowAddToBackStack()
             intent?.commit()
+        }
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                optymal.isVisible = position != 0
+
+            }
+
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
         }
 
     }
@@ -129,6 +193,31 @@ class OutputView : Fragment() {
         arr[array.size] = element
         return arr as Array<ESPO>?
     }
+    fun CreateList(user: User): List<String>
+    {
+        val list = mutableListOf("none")
+        for (item in user.ESPsensor!!)
+        {
+            list += item.name
+        }
+
+        return list
+    }
+    fun FindName(user: User, id:Int, list: List<String>): String
+    {
+        var name: String
+        var sensor = user.ESPsensor?.find { it.id == id.toString() }
+        var index = list.indexOf(sensor!!.name)
+
+        return index.toString()
+    }
+    fun FindSensor(user: User, name:String):String
+    {
+        val sensor = user.ESPsensor?.find { it.name == name }
+
+        return sensor?.id!!
+    }
+
 
     companion object {
         /**

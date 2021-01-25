@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_input_view.*
 import java.util.*
@@ -63,7 +64,7 @@ class InputView : Fragment() {
         editTextName = view.findViewById(R.id.editTextNameInput)
         editTextPin = view.findViewById(R.id.editTextPinInput)
         switchStatusInput = view.findViewById(R.id.switchStatusInput)
-        textCurrentValue = view.findViewById(R.id.textCurrentValue)
+        textCurrentValue = view.findViewById(R.id.textCurrentValueInput)
         editTextDescription = view.findViewById(R.id.editTextDescriptionInput)
 
         if (status == true)
@@ -77,6 +78,8 @@ class InputView : Fragment() {
         else if(status == false){
             btnDeleteInput.isEnabled = status!!
             btnDeleteInput.isClickable = status!!
+            graph_btn.isEnabled = status!!
+            graph_btn.isClickable = status!!
         }
 
 

@@ -143,6 +143,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/ItemSensorOutput">
 
                 <LinearLayout
+                    android:id="@+id/optymal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">

@@ -13,7 +13,7 @@ import kotlinx.coroutines.*
 import java.io.Serializable
 
 class DatabaseObjects():ViewModel(){
-    private val URL = "http://192.168.0.30:8000/sh"
+    private val URL = "http://192.168.0.250:8000/sh"
     val URLuser = "$URL/userlogin/"
     private val URLuserESPS = "$URL/userespsensor/"
     private val URLuserESPO = "$URL/userespout/"

@@ -7,6 +7,7 @@ class MyApplicaton():Application() {
         var User: User? = null
         var ESPS: ESPS? = null
         var ESPO: ESPO? = null
+        var listValue: List<String>? = null
 
     }
 

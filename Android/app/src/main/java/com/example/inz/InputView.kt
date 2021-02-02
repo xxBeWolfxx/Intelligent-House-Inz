@@ -46,6 +46,7 @@ class InputView : Fragment() {
         if (status == true)
         {
             ESPS = MyApplicaton.ESPS!!
+            MyApplicaton.listValue = ESPS.valueAvgDay.split(",")
         }
     }
 

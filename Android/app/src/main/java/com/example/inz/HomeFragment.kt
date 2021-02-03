@@ -63,6 +63,7 @@ class HomeFragment : Fragment() {
 
 
         button_temp.setOnClickListener {
+            findMainSensor(MyApplicaton.User!!, "Temperature")
             val intent = activity?.supportFragmentManager?.beginTransaction()
             intent?.replace(R.id.frame_layout, ChartFragment())
             intent?.disallowAddToBackStack()
@@ -222,5 +223,9 @@ class HomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun findMainSensor(user: User, sensor: String) {
+        val temp = user.ESPsensor?.find { it.name == sensor }
+        MyApplicaton.listValue = temp!!.valueAvgDay.split(",")
     }
 }

@@ -84,9 +84,9 @@ class ChartFragment : Fragment() {
             .xAxisTickInterval(1)
             .xAxisLabelsEnabled(true)
             .axesTextColor("#FFFFFF")
-            .categories(arrayOf("00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"))
+            .categories(CreateListOfHour(MyApplicaton.listValue!!.size).toTypedArray())
             .dataLabelsEnabled(true)
-            .yAxisMin(17.00f)
+            .yAxisMin(10.00f)
 //        .scrollablePlotArea( AAScrollablePlotArea()
 //            .minWidth(3000)
 //            .scrollPositionX(1f)
@@ -94,10 +94,10 @@ class ChartFragment : Fragment() {
             .series(arrayOf(
                 AASeriesElement()
                     .name("09.12.2020")
-                    .data(listOf(18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,20.0).toTypedArray()),
+                    .data(listOf(18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2).toTypedArray()),
                 AASeriesElement()
                     .name("10.12.2020")
-                    .data(arrayOf(18.5, 18.6, 18.5, 19.0, 19.2, 19.0, 19.2, 19.5, 20.0, 19.8, 19.9, 19.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,21.0))
+                    .data(MyApplicaton.listValue!!.map { it.toInt() }.toTypedArray())
             )
             )
 
@@ -132,7 +132,7 @@ class ChartFragment : Fragment() {
     fun CreateListOfHour(size: Int): List<String> {
 
         val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")).toString().toInt()
-        var list: List<String> = listOf(date.toString())
+        var list: List<String> = emptyList()
         for (i in 0 until size)
         {
            val sub = i + 1

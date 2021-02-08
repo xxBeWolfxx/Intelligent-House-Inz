@@ -82,6 +82,13 @@ class InputView : Fragment() {
             graph_btn.isEnabled = status!!
             graph_btn.isClickable = status!!
         }
+        graph_btn.setOnClickListener {
+            AssignValue(ESPS)
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, ChartFragment())
+            intent?.disallowAddToBackStack()
+            intent?.commit()
+        }
 
 
         btnBackInput.setOnClickListener {
@@ -149,6 +156,9 @@ class InputView : Fragment() {
             }
         }
 
+    }
+    fun AssignValue(esps: ESPS) {
+        MyApplicaton.listValue = esps!!.valueAvgDay.split(",")
     }
 
     fun Refreshlist(T: Array<ESPS>, item: ESPS):Array<ESPS>

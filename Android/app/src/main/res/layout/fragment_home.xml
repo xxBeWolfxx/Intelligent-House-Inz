@@ -299,7 +299,11 @@
                 app:cardBackgroundColor="#D6D6D6"
                 app:cardCornerRadius="75dp"
                 app:cardElevation="0dp">
-
+                <Button
+                    android:id="@+id/button_hum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00FFFFFF" />
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="50dp"

@@ -29,6 +29,7 @@ class ChartFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var name:String
 
 
 
@@ -37,7 +38,13 @@ class ChartFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        if (MyApplicaton.ESPS == null)
+        {
+            name = MyApplicaton.nameS!!
+        }
+        else{
+            name = MyApplicaton.ESPS!!.name
+        }
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -64,7 +71,7 @@ class ChartFragment : Fragment() {
 
         val aaChartModel : AAChartModel = AAChartModel()
             .chartType(AAChartType.Area)
-            .title("Temperature")
+            .title(name)
             .titleStyle(AAStyle()
                 .color("#FFFFFF")
             )
@@ -93,10 +100,7 @@ class ChartFragment : Fragment() {
 //        )
             .series(arrayOf(
                 AASeriesElement()
-                    .name("09.12.2020")
-                    .data(listOf(18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2).toTypedArray()),
-                AASeriesElement()
-                    .name("10.12.2020")
+                    .name("Average value per day")
                     .data(MyApplicaton.listValue!!.map { it.toInt() }.toTypedArray())
             )
             )
@@ -141,6 +145,6 @@ class ChartFragment : Fragment() {
         }
 
 
-        return list
+        return list.reversed()
     }
 }

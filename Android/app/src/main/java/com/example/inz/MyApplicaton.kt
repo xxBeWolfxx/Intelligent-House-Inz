@@ -8,6 +8,7 @@ class MyApplicaton():Application() {
         var ESPS: ESPS? = null
         var ESPO: ESPO? = null
         var listValue: List<String>? = null
+        var nameS: String? = null
 
     }
 

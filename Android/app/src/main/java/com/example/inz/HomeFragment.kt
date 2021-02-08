@@ -64,6 +64,15 @@ class HomeFragment : Fragment() {
 
         button_temp.setOnClickListener {
             findMainSensor(MyApplicaton.User!!, "Temperature")
+            MyApplicaton.nameS = "Temperature"
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, ChartFragment())
+            intent?.disallowAddToBackStack()
+            intent?.commit()
+        }
+        button_hum.setOnClickListener {
+            findMainSensor(MyApplicaton.User!!, "Hum")
+            MyApplicaton.nameS = "Hum"
             val intent = activity?.supportFragmentManager?.beginTransaction()
             intent?.replace(R.id.frame_layout, ChartFragment())
             intent?.disallowAddToBackStack()

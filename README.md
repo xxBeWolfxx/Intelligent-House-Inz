@@ -34,4 +34,6 @@ Zawiera:
 
 ### Aplikacja
 Składa się ona z dwóch aktywności: uwierzytelnienie użytkownika oraz zarządzanie urządzeniami i sensorami w sieci. Zaimplementowano wykresy wartości czujników. Aplikacja współpracuje ściśle z serwerem i komunikuje się z nim po protokole HTTP REST Api.
+
+
 <img src="photo/AP1.png" width="400">   <img src="photo/AP4.png" width="400"> 

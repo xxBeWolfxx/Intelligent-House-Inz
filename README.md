@@ -13,6 +13,7 @@ Aplikacja składa się z 4 elementów: Komputera (asystent Google'a, serwer, baz
 Jako komputer został zaimplementowany komputer Raspberry Pi 4B, który posiada w sobie instancje:
 #### Serwer.
 Został zrealizowany za pomocą frameworku Django oraz Django REST framework. Została stworzona strona administracyjna do szybkiego modelowania informacji w bazie.
+Link: https://github.com/xxBeWolfxx/Django-server
 
 ### Baza danych.
 Ze względu na wykorzystanie systemu operacyjnego Debian została zaimplementowana baza SQL w dystrybucji MariaDB. Baza posiada tablice: Użytkownik, ESP Sensor, ESP Output. Tablice ESP Sensor oraz ESP Output są w relacji Many-to-Many z tablicą Użytkownik.

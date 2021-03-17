@@ -88,12 +88,10 @@ class MainActivity : AppCompatActivity() {
                             //
                             delay(900L)
                             //
-                            val intent = Intent(this@MainActivity, MainView::class.java)
-                            intent.putExtra("User", user)
+
                             delay(700L)
                             dialog.dismiss()
-                            startActivity(intent)
-                            finish()
+
                             
                         }
                         is Result.Success -> {

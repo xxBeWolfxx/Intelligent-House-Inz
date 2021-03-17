@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_input_view.*
 import java.util.*
@@ -45,6 +46,7 @@ class InputView : Fragment() {
         if (status == true)
         {
             ESPS = MyApplicaton.ESPS!!
+            MyApplicaton.listValue = ESPS.valueAvgDay.split(",")
         }
     }
 
@@ -63,7 +65,7 @@ class InputView : Fragment() {
         editTextName = view.findViewById(R.id.editTextNameInput)
         editTextPin = view.findViewById(R.id.editTextPinInput)
         switchStatusInput = view.findViewById(R.id.switchStatusInput)
-        textCurrentValue = view.findViewById(R.id.textCurrentValue)
+        textCurrentValue = view.findViewById(R.id.textCurrentValueInput)
         editTextDescription = view.findViewById(R.id.editTextDescriptionInput)
 
         if (status == true)
@@ -77,6 +79,15 @@ class InputView : Fragment() {
         else if(status == false){
             btnDeleteInput.isEnabled = status!!
             btnDeleteInput.isClickable = status!!
+            graph_btn.isEnabled = status!!
+            graph_btn.isClickable = status!!
+        }
+        graph_btn.setOnClickListener {
+            AssignValue(ESPS)
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, ChartFragment())
+            intent?.disallowAddToBackStack()
+            intent?.commit()
         }
 
 
@@ -145,6 +156,9 @@ class InputView : Fragment() {
             }
         }
 
+    }
+    fun AssignValue(esps: ESPS) {
+        MyApplicaton.listValue = esps!!.valueAvgDay.split(",")
     }
 
     fun Refreshlist(T: Array<ESPS>, item: ESPS):Array<ESPS>

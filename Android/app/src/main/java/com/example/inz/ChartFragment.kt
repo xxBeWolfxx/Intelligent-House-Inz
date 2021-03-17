@@ -1,14 +1,18 @@
 package com.example.inz
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,58 +29,27 @@ class ChartFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var name:String
 
-    val aaChartModel : AAChartModel = AAChartModel()
-        .chartType(AAChartType.Area)
-        .title("Temperature")
-        .titleStyle(AAStyle()
-            .color("#FFFFFF")
-        )
-        .dataLabelsStyle(AAStyle()
-            .color("#FFFFFF")
-        )
-        .zoomType(AAChartZoomType.X)
 
- //       .backgroundColor("#D6D6D6")
-        .backgroundColor(AAGradientColor.linearGradient("#1F1139","#041F39"))
-        .markerSymbol(AAChartSymbolType.Circle)
-        .colorsTheme(arrayOf("#700c28", "#5814D3", "#06caf4")
-        )
-        .yAxisGridLineWidth(0.00f)
-        .yAxisLabelsEnabled(false)
-        .yAxisTitle("")
-        .xAxisTickInterval(1)
-        .xAxisLabelsEnabled(true)
-        .axesTextColor("#FFFFFF")
-        .categories(arrayOf("00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"))
-        .dataLabelsEnabled(true)
-        .yAxisMin(17.00f)
-//        .scrollablePlotArea( AAScrollablePlotArea()
-//            .minWidth(3000)
-//            .scrollPositionX(1f)
-//        )
-        .series(arrayOf(
-            AASeriesElement()
-                .name("09.12.2020")
-                .data(arrayOf(18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,20.0)),
-            AASeriesElement()
-                .name("10.12.2020")
-                .data(arrayOf(18.5, 18.6, 18.5, 19.0, 19.2, 19.0, 19.2, 19.5, 20.0, 19.8, 19.9, 19.6,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,21.0)),
-            AASeriesElement()
-                .name("11.12.2020")
-                .data(arrayOf(18.2, 18.5, 19.0, 19.5, 19.9, 20.5, 21.0, 20.7, 20.5, 20.2, 19.6, 19.2,18.0, 18.9, 19.5, 20.0, 20.2, 21.0, 21.2, 20.5, 20.3, 20.0, 18.9, 18.6,20.6))
-        )
-        )
+
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        if (MyApplicaton.ESPS == null)
+        {
+            name = MyApplicaton.nameS!!
+        }
+        else{
+            name = MyApplicaton.ESPS!!.name
+        }
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -89,8 +62,50 @@ class ChartFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_chart, container, false)
 
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        var time: List<String>? = null
+        CreateListOfHour(2)
+
+        val aaChartModel : AAChartModel = AAChartModel()
+            .chartType(AAChartType.Area)
+            .title(name)
+            .titleStyle(AAStyle()
+                .color("#FFFFFF")
+            )
+            .dataLabelsStyle(AAStyle()
+                .color("#FFFFFF")
+            )
+            .zoomType(AAChartZoomType.X)
+
+            .backgroundColor("#040925")
+            //.backgroundColor(AAGradientColor.linearGradient("#1F1139","#041F39"))
+            .markerSymbol(AAChartSymbolType.Circle)
+            .colorsTheme(arrayOf("#700c28", "#5814D3", "#06caf4")
+            )
+            .yAxisGridLineWidth(0.00f)
+            .yAxisLabelsEnabled(false)
+            .yAxisTitle("")
+            .xAxisTickInterval(1)
+            .xAxisLabelsEnabled(true)
+            .axesTextColor("#FFFFFF")
+            .categories(CreateListOfHour(MyApplicaton.listValue!!.size).toTypedArray())
+            .dataLabelsEnabled(true)
+            .yAxisMin(10.00f)
+//        .scrollablePlotArea( AAScrollablePlotArea()
+//            .minWidth(3000)
+//            .scrollPositionX(1f)
+//        )
+            .series(arrayOf(
+                AASeriesElement()
+                    .name("Average value per day")
+                    .data(MyApplicaton.listValue!!.map { it.toInt() }.toTypedArray())
+            )
+            )
+
+
 
         val aaChartView = view?.findViewById<AAChartView>(R.id.aa_chart_view)
         aaChartView?.aa_drawChartWithChartModel(aaChartModel)
@@ -116,5 +131,20 @@ class ChartFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun CreateListOfHour(size: Int): List<String> {
+
+        val date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH")).toString().toInt()
+        var list: List<String> = emptyList()
+        for (i in 0 until size)
+        {
+           val sub = i + 1
+            list += (date - sub).toString()
+
+        }
+
+
+        return list.reversed()
     }
 }

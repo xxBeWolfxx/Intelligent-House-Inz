@@ -290,7 +290,7 @@ data class User(var id:String,var name:String, var lastname: String, var email: 
             override fun deserialize(content: String): Array<User>? = Gson().fromJson(content, Array<User>::class.java)
         }
 }
-data class  ESPO(var id: String, var name: String, var pin: Int, var status: Boolean, var description: String, var sensor: ESPS?, var minValue: Int, var maxValue: Int):Serializable {
+data class  ESPO(var id: String, var name: String, var pin: Int, var status: Boolean, var description: String, var sensor: String?, var minValue: String?, var maxValue: String?, var currentValue: Int?):Serializable {
     class DeserializerESP: ResponseDeserializable<ESPO>{
         override fun deserialize(content: String) = Gson().fromJson(content, ESPO::class.java)
     }

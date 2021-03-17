@@ -1,23 +1,22 @@
 package com.example.inz
 
 
+import android.annotation.SuppressLint
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.os.StrictMode
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_home.*
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_home.*
 import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-
+import java.sql.Date
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,7 +39,8 @@ class HomeFragment : Fragment() {
     var view_hum: TextView? = null
     var City:String?=null
     var view_weather: ImageView? = null
-
+    var view_sunset: TextView? = null
+    var view_sunrise: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +58,21 @@ class HomeFragment : Fragment() {
         view_temp = view.findViewById(R.id.temp)
         view_press = view.findViewById(R.id.press)
         view_hum = view.findViewById(R.id.hum)
+        view_sunrise=view.findViewById(R.id.sunrise_time)
+        view_sunset=view.findViewById(R.id.sunset_time)
 
 
         button_temp.setOnClickListener {
+            findMainSensor(MyApplicaton.User!!, "Temperature")
+            MyApplicaton.nameS = "Temperature"
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, ChartFragment())
+            intent?.disallowAddToBackStack()
+            intent?.commit()
+        }
+        button_hum.setOnClickListener {
+            findMainSensor(MyApplicaton.User!!, "Hum")
+            MyApplicaton.nameS = "Hum"
             val intent = activity?.supportFragmentManager?.beginTransaction()
             intent?.replace(R.id.frame_layout, ChartFragment())
             intent?.disallowAddToBackStack()
@@ -91,6 +103,7 @@ class HomeFragment : Fragment() {
                 }
 
 
+                @SuppressLint("SimpleDateFormat")
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     val responseData = response.body!!.string()
@@ -104,6 +117,31 @@ class HomeFragment : Fragment() {
                         val pressure = temp1.getDouble("pressure")
                         val humidity = temp1.getDouble("humidity")
                         val Town = json.getString("name")
+                        val sys1: JSONObject = json.getJSONObject("sys")
+                        val rise: Long = sys1.getLong("sunrise")
+                        val set: Long = sys1.getLong("sunset")
+
+
+                        val javaTimestamp1 = rise * 1000L
+                        val date1 = Date(javaTimestamp1)
+                        val sunrise: String = SimpleDateFormat("kk:mm").format(date1)
+
+                        val javaTimestamp2 = set * 1000L
+                        val date2 = Date(javaTimestamp2)
+                        val sunset: String = SimpleDateFormat("kk:mm").format(date2)
+
+                        view_sunrise?.let {
+
+                                setText(it, sunrise)
+
+                            }
+
+                        view_sunset?.let {
+
+                            setText(it, sunset)
+
+                        }
+
                         view_city?.let {
                             if (Town != null) {
                                 setText(it, Town)
@@ -194,5 +232,9 @@ class HomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun findMainSensor(user: User, sensor: String) {
+        val temp = user.ESPsensor?.find { it.name == sensor }
+        MyApplicaton.listValue = temp!!.valueAvgDay.split(",")
     }
 }

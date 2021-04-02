@@ -3,6 +3,13 @@ package com.example.inz
 import android.app.Application
 
 class MyApplicaton():Application() {
-    var User: User? = null
+    companion object{
+        var User: User? = null
+        var ESPS: ESPS? = null
+        var ESPO: ESPO? = null
+        var listValue: List<String>? = null
+        var nameS: String? = null
+
+    }
 
 }

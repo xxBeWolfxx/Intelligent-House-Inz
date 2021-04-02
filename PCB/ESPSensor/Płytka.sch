@@ -21114,8 +21114,8 @@ W = angled&lt;p&gt;
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="IC2" library="v-reg-3" deviceset="LM2576" device="T" value="LM2576S/5V"/>
-<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E2.5-6" package3d_urn="urn:adsk.eagle:package:23349/1"/>
-<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E3.5-8" package3d_urn="urn:adsk.eagle:package:23360/2"/>
+<part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E2.5-6" package3d_urn="urn:adsk.eagle:package:23349/1" value="100u"/>
+<part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-EU" device="E3.5-8" package3d_urn="urn:adsk.eagle:package:23360/2" value="10u"/>
 <part name="D3" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="1N5908" device="" package3d_urn="urn:adsk.eagle:package:43355/2" value="1N5822"/>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -21129,7 +21129,7 @@ W = angled&lt;p&gt;
 <part name="GND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="LED1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1"/>
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="330"/>
 <part name="P+19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="L1" library="ferrocore" deviceset="DE1207-100" device=""/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
@@ -21147,10 +21147,10 @@ W = angled&lt;p&gt;
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="P+28" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND28" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
+<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="100u"/>
+<part name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R30" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
+<part name="R30" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
 <part name="LED5" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="SML0805" package3d_urn="urn:adsk.eagle:package:15830/1"/>
 <part name="GND29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -21160,11 +21160,11 @@ W = angled&lt;p&gt;
 <part name="J2" library="PUTRocketLab_connectors" deviceset="WT-2MM-3PIN" device="STRAIGHT" value="HUM2"/>
 <part name="J3" library="PUTRocketLab_connectors" deviceset="WT-2MM-3PIN" device="STRAIGHT" value="TEMP"/>
 <part name="J4" library="PUTRocketLab_connectors" deviceset="WT-2MM-3PIN" device="STRAIGHT" value="SUN"/>
-<part name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
-<part name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
+<part name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="20K"/>
+<part name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
-<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
+<part name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K"/>
+<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="20K"/>
 <part name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
 <part name="R22" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
 <part name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2"/>
@@ -21229,11 +21229,11 @@ W = angled&lt;p&gt;
 <part name="J7" library="PUTRocketLab_connectors" deviceset="WT-2MM-2PIN" device="STRAIGHT" value="K1"/>
 <part name="J8" library="PUTRocketLab_connectors" deviceset="WT-2MM-2PIN" device="STRAIGHT" value="K5"/>
 <part name="J9" library="PUTRocketLab_connectors" deviceset="WT-2MM-2PIN" device="STRAIGHT" value="K4"/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
-<part name="C15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
+<part name="C14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
+<part name="C15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805K" package3d_urn="urn:adsk.eagle:package:23681/2" value="10u"/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -21276,6 +21276,7 @@ W = angled&lt;p&gt;
 <text x="8.255" y="46.355" size="5.08" layer="97">ADC</text>
 <text x="236.22" y="93.98" size="5.08" layer="97">I2C</text>
 <text x="235.585" y="248.285" size="5.08" layer="97">END-Stops</text>
+<text x="344.17" y="15.494" size="2.1844" layer="94">ESP Sensors</text>
 </plain>
 <instances>
 <instance part="I2C_3V3_1" gate="1" x="302.895" y="55.245" smashed="yes" rot="R180">
@@ -21312,7 +21313,7 @@ W = angled&lt;p&gt;
 </instance>
 <instance part="C1" gate="G$1" x="59.69" y="225.425" smashed="yes">
 <attribute name="NAME" x="60.833" y="225.9076" size="1.778" layer="95"/>
-<attribute name="VALUE" x="60.833" y="220.8276" size="1.778" layer="96"/>
+<attribute name="VALUE" x="52.578" y="219.5576" size="1.778" layer="96"/>
 </instance>
 <instance part="C2" gate="G$1" x="124.46" y="221.615" smashed="yes">
 <attribute name="NAME" x="125.603" y="222.0976" size="1.778" layer="95"/>
@@ -21375,7 +21376,6 @@ W = angled&lt;p&gt;
 <attribute name="VALUE" x="119.38" y="231.902" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="FRAME1" gate="G$1" x="0" y="0" smashed="yes">
-<attribute name="DRAWING_NAME" x="344.17" y="15.24" size="2.54" layer="94"/>
 <attribute name="LAST_DATE_TIME" x="344.17" y="10.16" size="2.286" layer="94"/>
 <attribute name="SHEET" x="357.505" y="5.08" size="2.54" layer="94"/>
 </instance>
@@ -21478,22 +21478,22 @@ W = angled&lt;p&gt;
 </instance>
 <instance part="R17" gate="G$1" x="36.195" y="33.655" smashed="yes" rot="MR90">
 <attribute name="NAME" x="33.2486" y="33.02" size="1.778" layer="95" rot="MR90"/>
-<attribute name="VALUE" x="32.893" y="29.845" size="1.778" layer="96" rot="MR90"/>
+<attribute name="VALUE" x="37.973" y="31.75" size="1.778" layer="96" rot="MR90"/>
 </instance>
 <instance part="R18" gate="G$1" x="43.815" y="40.005" smashed="yes" rot="MR0">
 <attribute name="NAME" x="44.45" y="37.0586" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="47.625" y="36.703" size="1.778" layer="96" rot="MR0"/>
+<attribute name="VALUE" x="45.085" y="41.783" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="GND1" gate="1" x="36.195" y="25.4" smashed="yes">
 <attribute name="VALUE" x="33.655" y="22.86" size="1.778" layer="96"/>
 </instance>
 <instance part="R19" gate="G$1" x="99.06" y="41.275" smashed="yes" rot="MR0">
 <attribute name="NAME" x="99.695" y="38.3286" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="102.87" y="37.973" size="1.778" layer="96" rot="MR0"/>
+<attribute name="VALUE" x="99.695" y="36.068" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="R20" gate="G$1" x="92.075" y="35.56" smashed="yes" rot="MR270">
-<attribute name="NAME" x="95.0214" y="36.195" size="1.778" layer="95" rot="MR270"/>
-<attribute name="VALUE" x="95.377" y="39.37" size="1.778" layer="96" rot="MR270"/>
+<attribute name="NAME" x="90.5764" y="37.465" size="1.778" layer="95" rot="MR270"/>
+<attribute name="VALUE" x="94.742" y="37.465" size="1.778" layer="96" rot="MR270"/>
 </instance>
 <instance part="R21" gate="G$1" x="154.305" y="41.91" smashed="yes" rot="MR0">
 <attribute name="NAME" x="154.94" y="38.9636" size="1.778" layer="95" rot="MR0"/>

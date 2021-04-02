@@ -1,25 +1,41 @@
 package com.example.inz
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_output.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+
 /**
  * A simple [Fragment] subclass.
  * Use the [OutputFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OutputFragment : Fragment() {
+class OutputFragment : Fragment(), MyAdapter.OnItemClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    //*****************variables to set RecyclerView**********************
+    lateinit var exampleList: ArrayList<ItemCardView>
+    var RecyclerTasks: RecyclerView? = null
+    lateinit var adapter: MyAdapter
+    var clickposition:Int = -1 //position of list in RecyclerView
+
+    //******************variables to check if buttons are clicked*************************
+    var isclicked:Boolean = false
+    var adding:Boolean = false
+    lateinit var  user: User
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +55,35 @@ class OutputFragment : Fragment() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        user = MyApplicaton.User!!
+
+
+        exampleList = ArrayList<ItemCardView>()
+        exampleList = DatabaseObjects().CreateArrayESP(user, true)
+        adapter = MyAdapter(exampleList, this)
+
+        //              Set RecyclerView with list of components from tasks
+        RecyclerTasks = view.findViewById(R.id.RycyclerOutputs)
+        RecyclerTasks?.adapter = adapter
+        RecyclerTasks?.layoutManager = LinearLayoutManager(view.context)
+        RecyclerTasks?.setHasFixedSize(true)
+
+        imageButtonOutputAdder.setOnClickListener {
+            val intent = activity?.supportFragmentManager?.beginTransaction()
+            intent?.replace(R.id.frame_layout, newInstance(false))
+            intent?.addToBackStack(null)
+            intent?.commit()
+        }
+
+
+
+
+
+
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -50,12 +95,31 @@ class OutputFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OutputFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance(param1: Boolean): OutputView {
+            val bundle = Bundle()
+            bundle.putBoolean("status", param1)
+            val fragment = OutputView()
+            fragment.arguments = bundle
+
+            return fragment
+        }
+    }
+
+    override fun onItemClick(position: Int) {
+        Log.d("Klik", "Position $position")
+        isclicked = true
+        clickposition = position
+
+        val tempESPO = exampleList[position]
+        MyApplicaton.ESPO = user.ESPoutputs?.find { it.id.toInt() == tempESPO.ID }
+
+        val bundle = Bundle()
+        bundle.putString("status", "false")
+
+        val intent = activity?.supportFragmentManager?.beginTransaction()
+        intent?.replace(R.id.frame_layout, newInstance(param1 = true))
+        intent?.addToBackStack(null)
+        intent?.commit()
+
     }
 }

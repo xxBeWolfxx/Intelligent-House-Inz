@@ -3,6 +3,7 @@ package com.example.inz
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -29,7 +30,6 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     lateinit var homeFragment: HomeFragment
     lateinit var  inputFragment: InputFragment
     lateinit var  outputFragment: OutputFragment
-    lateinit var  settingsFragment: SettingsFragment
     lateinit var  actionBar: ActionBar
     lateinit var user: User
 
@@ -38,13 +38,20 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mainview)
-        user = intent.getSerializableExtra("User") as User
 
+        user = intent.getSerializableExtra("User") as User
+        SetHeader(user, nav_view.getHeaderView(0))
+        MyApplicaton.User = user
+
+        GlobalScope.launch(Dispatchers.IO)
+        {
+            DatabaseObjects().GetESPs(user.ESPoCount, user.ESPsCount, user)
+        }
 
 
         setSupportActionBar(toolBar)
         actionBar = supportActionBar!!
-        actionBar?.title = "Home"
+        actionBar.title = "Home"
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
             drawer_layout,
@@ -60,24 +67,23 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         inputFragment = InputFragment()
         outputFragment =   OutputFragment()
-        settingsFragment = SettingsFragment()
         homeFragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout, homeFragment).setTransition(
             FragmentTransaction.TRANSIT_FRAGMENT_OPEN
         ).commit()
 
         nav_view.setNavigationItemSelectedListener(this)
-        SetHeader(user, nav_view.getHeaderView(0))
 
+        RefreshButton.setOnClickListener {
+            finish()
+            startActivity(intent)
+        }
 
         //DatabaseObjects().GetESPs(1,1,this)
 
-
-
     }
 
-
-
+    @SuppressLint("ShowToast")
     override fun onNavigationItemSelected(item: MenuItem):Boolean{
         when(item.itemId){
             R.id.nav_btn1 -> {
@@ -86,7 +92,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Home"
+                actionBar.title = "Home"
 
             }
             R.id.nav_btn2 -> {
@@ -95,7 +101,7 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Sensors"
+                actionBar.title = "Sensors"
 
             }
             R.id.nav_btn3 -> {
@@ -104,22 +110,26 @@ class MainView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
                     .setTransition(
                         FragmentTransaction.TRANSIT_FRAGMENT_OPEN
                     ).commit()
-                actionBar?.title = "Devices"
+                actionBar.title = "Devices"
 
             }
-            R.id.nav_btn4 -> {
-                settingsFragment = SettingsFragment()
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.frame_layout,
-                    settingsFragment
-                ).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit()
-                actionBar?.title = "Settings"
+            R.id.nav_btn6 -> {
+
+                GlobalScope.launch() {
+                    val intent = Intent(this@MainView, MainActivity::class.java)
+                    delay(700)
+                    startActivity(intent)
+                    finish()
+
+                }
 
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
     private fun SetHeader(user: User, headerView: View)
     {
         val header_name = headerView.findViewById<TextView>(R.id.header_name)

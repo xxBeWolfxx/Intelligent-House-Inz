@@ -1,38 +1,34 @@
 package com.example.inz
 
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
 
 
 class MainActivity : AppCompatActivity() {
 
 
-    lateinit var progressView: ConstraintLayout
-    lateinit var progressText: TextView
     lateinit var logo: ImageView
     lateinit var inputView: CardView
     lateinit var buttonView: CardView
+    lateinit var bodyDialog: TextView
 
 
-    var user: User = User("valid", "valid", "valid", "valid", null, null)
+    var user: User = User("Arek", "Krusz", "valid@valid.pl", "valid", "valid", "null", 0, 0, null, null)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -41,8 +37,19 @@ class MainActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_main)
 
+        //Setting animation
         val logo_animation: Animation = AnimationUtils.loadAnimation(this, R.anim.logo_animation)
         val bottomAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
+
+        //Setting dialog window with progressBar
+        val dialog: Dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.loading_dialog)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        bodyDialog = dialog.findViewById(R.id.progressText)
+
+
         logo = findViewById(R.id.logo)
         inputView = findViewById(R.id.cardView2)
         buttonView = findViewById(R.id.cardView)
@@ -52,47 +59,61 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
         val btnOpenMainView: Button = findViewById(R.id.button_login)
         btnOpenMainView.setOnClickListener {
-            progressView = findViewById(R.id.progress_window)
-            progressText = findViewById(R.id.progressText)
-            progressView.visibility = View.VISIBLE
-            progressText.text = "Loading..."
-            GetUserDatabase()
+            val login: String = findViewById<EditText>(R.id.editTextTextLogin).text.toString()
+            val password: String = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
+            dialog.show()
+            bodyDialog.text = "Loading..."
+            GetUserDatabase(dialog, login, password)
         }
 
 
     }
 
 
-    fun GetUserDatabase() {
+    fun GetUserDatabase(dialog: Dialog, login: String, password: String) {
+
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val (request, response, result) = ("http://192.168.0.250:8000/sh/userdetail/1/").httpGet()
+                val (request, response, result) = ("${DatabaseObjects().URLuser}${login}/?format=json").httpGet().authenticate(login,password)
                     .responseObject(User.DeserializerUser())
                 withContext(Dispatchers.Main)
                 {
+
                     when (result) {
                         is Result.Failure -> {
-                            Log.d("Uwaga", result.getException().toString())
-                            progressText.text = "Wrong login or password"
-                            delay(100L)
-                            user.name = "Arek"
-                            user.lastname = "Krusz"
-                            user.email = "aaa@aaa.com"
-                            val intent = Intent(this@MainActivity, MainView::class.java)
-                            intent.putExtra("User", user)
-                            startActivity(intent)
-                            finish()
+                            bodyDialog.text = "Wrong login or password"
+                            //
+                            delay(900L)
+                            //
+
+                            delay(700L)
+                            dialog.dismiss()
+
+                            
                         }
                         is Result.Success -> {
-                            user = result.component1()!!
-                            progressText.text = "Success!"
-                            delay(100L)
-                            val intent = Intent(this@MainActivity, MainView::class.java)
-                            intent.putExtra("User", user)
-                            startActivity(intent)
-                            finish()
+                            val userTemp = result.component1()!!
+                            if (password == userTemp.password)
+                            {
+                                user = userTemp
+                                bodyDialog.text = "Success!"
+                                delay(100L)
+                                val intent = Intent(this@MainActivity, MainView::class.java)
+                                intent.putExtra("User", user)
+                                delay(700L)
+                                dialog.dismiss()
+                                startActivity(intent)
+                                finish()
+                            }
+                            else
+                            {
+                                bodyDialog.text = "Wrong password!"
+                                delay(700L)
+                                dialog.dismiss()
+                            }
                         }
                     }
                 }
